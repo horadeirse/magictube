@@ -3,35 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Buscador YouTube - Videos y Canales</title>
+  <title>MagicTube</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>🎥 Explora YouTube</h1>
-    <div class="search-bar">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Buscar videos o canales..."
-        autocomplete="off"
-      />
-      <select id="searchType">
-        <option value="video">Videos</option>
-        <option value="channel">Canales</option>
-      </select>
-      <button onclick="searchYouTube()">Buscar</button>
+  <!-- Login Overlay -->
+  <div id="login-container" class="login-container">
+    <div class="login-box">
+      <h2>🔐 Acceso privado</h2>
+      <input type="password" id="password" placeholder="Introduce la contraseña" />
+      <button onclick="checkPassword()">Entrar</button>
+      <p id="error" class="error-msg"></p>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <section id="player" class="player"></section>
-    <section id="results" class="results"></section>
-  </main>
+  <!-- Main Content -->
+  <div id="main-content" class="hidden">
+    <header>
+      <h1>🎥 Explora YouTube</h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Buscar videos o canales..."
+          autocomplete="off"
+        />
+        <select id="searchType">
+          <option value="video">Videos</option>
+          <option value="channel">Canales</option>
+        </select>
+        <button onclick="searchYouTube()">Buscar</button>
+      </div>
+    </header>
 
-  <footer>
-    <p>@adrian.aalvarezz</p>
-  </footer>
+    <main>
+      <section id="player" class="player"></section>
+      <section id="results" class="results"></section>
+
+      <!-- Contenedor del historial, oculto por defecto -->
+      <section id="history" class="history hidden">
+        <h3>🎞️ Historial de videos reproducidos</h3>
+        <div id="history-list">
+          <p>No hay videos en el historial.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>@adrian.aalvarezz</p>
+    </footer>
+
+    <!-- Botón flotante para abrir/ocultar historial -->
+    <button id="history-toggle" title="Mostrar/Ocultar historial">
+      📺
+    </button>
+  </div>
 
   <script src="script.js"></script>
 </body>
